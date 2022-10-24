@@ -1,0 +1,105 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Motherboard {
+  id Int @id @default(autoincrement())
+  name String
+  LGA String
+  DDR4 Boolean?
+  memorySlots Int
+  memoryCapacity Int
+  bestPrice Float
+  originalPrice Float
+  link String @db.LongText
+  factor MotherboardFactor @relation(fields: [factorId], references: [id])
+  factorId Int @unique
+}
+
+model MotherboardFactor {
+  id Int @id @default(autoincrement())
+  name String
+  motherboard Motherboard?
+}
+
+model Processor {
+  id Int @id @default(autoincrement())
+  name String
+  bestPrice Float
+  originalPrice Float
+  link String @db.LongText
+}
+
+model GraphicsCard {
+  id Int @id @default(autoincrement())
+  name String
+  bestPrice Float
+  originalPrice Float
+  link String @db.LongText
+}
+
+model PowerFont {
+  id Int @id @default(autoincrement())
+  name String
+  bestPrice Float
+  originalPrice Float
+  link String @db.LongText
+}
+
+model Memory {
+  id Int @id @default(autoincrement())
+  name String
+  CL Int
+  speed Int
+  size Int
+  quantity Int
+  bestPrice Float
+  worstPrice Float
+  link String @db.LongText
+}
+
+model Cooler {
+  id Int @id @default(autoincrement())
+  name String
+  dba Float
+  cfm Int
+  rpm Int
+  bestPrice Float
+  worstPrice Float
+  link String @db.LongText
+}
+
+model HDD {
+  id Int @id @default(autoincrement())
+  name String
+  interface String
+  size Int
+  bestPrice Float
+  originalPrice Float
+  link String @db.LongText
+}
+
+model SSD {
+  id Int @id @default(autoincrement())
+  name String
+  interface String
+  size Int
+  bestPrice Float
+  originalPrice Float
+  link String @db.LongText
+}
+
+model Cabinet {
+  id Int @id @default(autoincrement())
+  name String
+  fansIncluded Int
+  USBPorts Int
+}

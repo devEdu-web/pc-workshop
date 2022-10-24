@@ -1,0 +1,38 @@
+{
+  "name": "pc-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devEdu-web/pc-workshop.git"
+  },
+  "author": "Eduardo Oliveira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devEdu-web/pc-workshop/issues"
+  },
+  "homepage": "https://github.com/devEdu-web/pc-workshop#readme",
+  "dependencies": {
+    "@prisma/client": "^4.5.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "prisma": "^4.5.0",
+    "zod": "^3.19.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "@types/jest": "^29.2.0",
+    "@types/node": "^18.11.4",
+    "@types/supertest": "^2.0.12",
+    "jest": "^29.2.2",
+    "supertest": "^6.3.1",
+    "ts-jest": "^29.0.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.8.4"
+  }
+}
